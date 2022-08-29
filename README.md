@@ -1,4 +1,6 @@
-# OrientDB with Java in 5 minutes
+#  Java Server Application with OrientDB
+> OrientDB is written completely in the Java language. This means that you can use its Java API's without needing to install any additional drivers or adapters.
+
 This is a concoction of [this tutorial](http://orientdb.com/docs/3.0.x/fiveminute/) and configs specifically for a Maven/IntelliJ environment.
 
 ## Install
@@ -135,3 +137,24 @@ pool.close();
 orientDB.close();
 ```
 [Source](http://orientdb.com/docs/3.0.x/java/Document-API-Database.html)
+
+## Java Server Application Development Process
+The basic steps involved in the creation of a server application are summarized in the following table:
+
+[Step 1: Compile the OMG IDL file for the server application.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023108)\
+[Step 2: Write the methods that implement each interface's operations.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023186)\
+[Step 3: Create the Server object.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023264)\
+[Step 4: Compile the Java source files.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023350)\
+[Step 5: Define the object activation and transaction policies.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023353)\
+[Step 6: Verify the environment variables.](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023443)\
+[Step 7: Finish the Server Description File.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023485)\
+[Step 8: Deploy the server application.
+](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm#1023515)
+
+[Source](https://docs.oracle.com/cd/E13211_01/wle/wle50/jcreserv/maksrv.htm)
