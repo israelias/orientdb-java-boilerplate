@@ -76,3 +76,60 @@ Running the application should log:
 ```shell
 2022-08-29 22:39:14:217 WARNI IMPORTANT! Using default password is unsafe, please change password for user 'admin' on database 'orientdb-java-boilerplate' [OrientDBDistributed]
 ```
+
+### Creating the schema
+
+#### The Graph API (Apache TinkerPop 2.6) version
+```java
+    if (db.getClass("Person") == null) {
+      db.createVertexClass("Person");
+    }
+    if (db.getClass("FriendOf") == null) {
+      db.createEdgeClass("FriendOf");
+    }
+
+    db.close();
+    orient.close();
+```
+[Source](http://orientdb.com/docs/3.0.x/fiveminute/java-3.html)
+
+####  The Document API version
+
+```java
+ODatabaseDocument db;
+...
+   db.begin();
+   ODocument doc1 = db.newInstance("Person");
+   ODocument doc2 = db.newInstance("Person");
+
+   // at this stage the record is not yet persistent
+
+   System.out.println(doc1.getIdentity()); //this will print a temporary RID 
+   
+   doc1.setProperty("FriendOf", doc2);
+   doc1.save(); // interchangeable with doc2.save()
+   // If you forget to invoke doc1.save() before db.commit(), the record is STILL NOT PERSISTENT;
+   db.commit();
+   db.close();
+
+```
+
+#### Using Database Pools
+
+```java
+OrientDB orientDB = new OrientDB("remote:localhost","root","root_passwd",OrientDBConfig.defaultConfig());
+
+OrientDBConfigBuilder poolCfg = OrientDBConfig.builder();
+poolCfg.addConfig(OGlobalConfiguration.DB_POOL_MIN, 5);
+poolCfg.addConfig(OGlobalConfiguration.DB_POOL_MAX, 10);
+
+ODatabasePool pool = new ODatabasePool(orientDB,"test","admin","admin", poolCfg.build());
+// OPEN DATABASE
+try (ODatabaseSession db = pool.acquire()) {
+   // YOUR CODE
+   ...
+}
+pool.close();
+orientDB.close();
+```
+[Source](http://orientdb.com/docs/3.0.x/java/Document-API-Database.html)
