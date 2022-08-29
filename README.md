@@ -79,6 +79,8 @@ Running the application should log:
 
 ### Creating the schema
 
+<img src="http://orientdb.com/docs/3.0.x/fiveminute/images/studio-schema.png" />
+
 #### The Graph API (Apache TinkerPop 2.6) version
 ```java
     if (db.getClass("Person") == null) {
@@ -114,7 +116,7 @@ ODatabaseDocument db;
 
 ```
 
-#### Using Database Pools
+### Using Database Pools
 
 ```java
 OrientDB orientDB = new OrientDB("remote:localhost","root","root_passwd",OrientDBConfig.defaultConfig());
