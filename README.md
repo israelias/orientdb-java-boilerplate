@@ -71,3 +71,8 @@ Here we are actually connecting to the database. The three parameters are:
 [Source](http://orientdb.com/docs/3.0.x/fiveminute/java-3.html)
 
 The above is not exactly reliable, I had to create these user instances manually. Perhaps it depends on the edition that  you download (I downloaded `3.2.9` for OSX 🤷‍♂️).
+
+Running the application should log:
+```shell
+2022-08-29 22:39:14:217 WARNI IMPORTANT! Using default password is unsafe, please change password for user 'admin' on database 'orientdb-java-boilerplate' [OrientDBDistributed]
+```
